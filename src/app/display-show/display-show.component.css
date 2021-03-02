@@ -1,0 +1,27 @@
+.well {
+    padding: 5px;
+    background-color: white;
+}
+
+/* @media screen and (max-width: 480px) {
+    .col-md-3 {
+        float:none;
+    }
+    
+  } */
+
+
+@media screen and (max-width: 500px) {
+.ss {
+    float: left;
+    margin-right:50px;
+    width: 200px;
+}
+}
+
+@media screen and (max-width: 500px) {
+    .sv {
+        /* float: clear; */
+        display: table-row;
+    }
+    }

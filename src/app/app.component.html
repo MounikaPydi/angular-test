@@ -1,0 +1,67 @@
+<!-- <input type="file" (change)="onFileSelect($event)" [(ngModel)]="selectedFile"><br><br> -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="hea">Filter</div>
+      <div class="filter">
+      <div>
+        <h4>Type</h4>
+        <app-multi-select
+          [list]="types"
+          [selectedList]="selectedTypes"
+          (onSelect)="typeSelected($event)"
+          (onDeselect)="typeDeselected($event)"
+          [hasSearch]="true">
+        </app-multi-select>
+      </div>
+      <div>
+        <h4>Director</h4>
+        <select [(ngModel)]="selectedDirector">
+          <option *ngFor="let director of directors" [ngValue]="director">{{director}}</option>
+        </select>
+      </div>
+      <div>
+        <h4>Cast</h4>
+        <app-multi-select
+          [list]="cast"
+          [selectedList]="selectedCast"
+          (onSelect)="castSelected($event)"
+          (onDeselect)="castDeselected($event)"
+          [hasSearch]="true">
+        </app-multi-select>
+      </div>
+      <div>
+        <h4>Country</h4>
+        <select [(ngModel)]="selectedCountry">
+          <option *ngFor="let country of countries" [ngValue]="country">{{country}}</option>
+        </select>
+      </div>
+      <div>
+        <h4>Date Range</h4>
+        <app-date-range-picker
+          (startDateSelected)="startDateSelected($event)"
+          (endDateSelected)="endDateSelected($event)"
+        >
+        </app-date-range-picker>
+      </div>
+      <div class="adjust-buttons">
+        <button (click)="applyFilter()" class="btn btn-success">Apply Filter</button>
+        <button (click)="resetFilter()" class="btn btn-danger">Reset</button>
+      </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <app-display-show
+        *ngFor="let show of paginatedData"
+        [show]="show">
+      </app-display-show>
+      <app-pagination
+        [totalRecords]="data.length"
+        [perPage]="perPage"
+        (getPageNumber)="onPageChange($event)"
+        [pageNumber]="pageNumber"
+      >
+      </app-pagination>
+    </div>
+  </div>
+</div>

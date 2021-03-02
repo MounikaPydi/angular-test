@@ -1,0 +1,28 @@
+<div class="row well">
+  <div class="col-md-3">
+    <p class="ss">Show Type</p>
+    <p class="sv">{{show.type}}</p>
+    <p class="ss">ID</p>
+    <p class="sv">{{show.show_id}}</p>
+  </div>
+  <div class="col-md-3">
+    <p class="ss">Movie Name</p>
+    <p class="sv">{{show.title}}</p>
+    <p class="ss">Release Year</p>
+    <p class="sv">{{show.release_year}}</p>
+    <p class="ss">Rating</p>
+    <p class="sv">{{show.rating}}</p>
+    <p class="ss">Duration</p>
+    <p class="sv">{{show.duration}}</p>
+  </div>
+  <div class="col-md-3">
+    <p class="ss">Cast</p>
+    <p *ngFor="let c of cast" class="sv">{{c}}</p>
+  </div>
+  <div class="col-md-3">
+    <p class="ss">Director</p>
+    <p *ngFor="let director of directors" class="sv">{{director}}</p>
+    <p class="ss">Country</p>
+    <p class="sv">{{show.country}}</p>
+  </div>
+</div>

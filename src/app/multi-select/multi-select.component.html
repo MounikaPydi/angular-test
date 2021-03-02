@@ -1,0 +1,20 @@
+<div class="multi">
+  <input type="search" placeholder="search" *ngIf="hasSearch" (input)="onSearch($event)">
+  <div class="dropdown-list">
+    <label class="container dropdown-list-item"  *ngFor="let item of items">{{item}}
+      <input type="checkbox" [checked]="selectedList.includes(item)" (change)="onChange($event, item)" [value]="item">
+      <span class="checkmark"></span>
+    </label>
+    <!-- <div *ngFor="let item of items" class="dropdown-list-item">
+      <input
+        type="checkbox"
+        [id]="item"
+        [name]="item"
+        [value]="item"
+        (change)="onChange($event, item)"
+        [checked]="selectedList.includes(item)">
+      <label [for]="item"> {{item}}</label>
+    </div> -->
+  </div>
+</div>
+  

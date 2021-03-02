@@ -1,0 +1,31 @@
+<div *ngIf="numOfPages > 1" class="pagination">
+  <span *ngIf="numOfPages > 3">
+    <button type="button" [disabled]="currentPage === 1" (click)="onPrevClick()" class="btn btn-primary">Prev</button>
+  </span>
+
+  <span *ngIf="numOfPages <= 3">
+    <span
+      *ngFor="let item of Arr(numOfPages).fill(1), let i = index"
+      class="pagination-numbers"
+      (click)="onPageChange(i+1)"
+    >
+      <span [ngClass]="{'currentClass': (i + 1) === currentPage}">{{i+1}}</span>
+    </span>
+  </span>
+
+  <span *ngIf="numOfPages > 3">
+    <span
+      *ngFor="let item of Arr(3).fill(1), let i = index"
+      class="pagination-numbers"
+      (click)="onPageChange(i+pageNumber)"
+    >
+    <span *ngIf="(pageNumber + 2) <= numOfPages" [ngClass]="{'currentClass': (pageNumber + i) === currentPage}">{{pageNumber + i}}</span>
+    <span *ngIf="(pageNumber + 2) > numOfPages" [ngClass]="{'currentClass': ((pageNumber + i) - (pageNumber % 3)) === currentPage}">{{(pageNumber + i) - (pageNumber % 3)}}</span>
+    </span>
+  </span>
+  
+  <span *ngIf="numOfPages > 3">
+    <button type="button" [disabled]="currentPage === numOfPages" (click)="onNextClick()" class="btn btn-primary">Next</button>
+  </span>
+</div>
+<!-- <div>numOfPages: {{numOfPages}}</div> -->

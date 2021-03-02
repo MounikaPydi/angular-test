@@ -1,0 +1,13 @@
+.pagination-numbers{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.currentClass {
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.pagination {
+    float: right;
+}
